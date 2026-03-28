@@ -1,0 +1,22 @@
+[Service]
+frequency=15
+state=/var/lib/python-ddns/
+
+[Logging]
+verbosity=error|warn|all
+error_logfile=/var/log/python-ddns/python-ddns.error.log
+runtime_logfile=/var/log/python-ddns/python-ddns.runtime.log
+
+[Domain]
+frequency=overrides global
+dns_provider=gandi
+tld=somedomain.com
+subdomain_only=false|true
+subdomains=comma,separated,list,of,subdomains
+credentials=$config_directory/$tld.conf
+
+[Domain]
+tld=someotherdomain.com
+dns_provider=gandi
+subdomains=more,subdomains
+credentials=/home/aaron/override/default/file/behaviour
